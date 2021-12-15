@@ -13,16 +13,14 @@ app.get("/", (req, res) => {
   res.send("backend is up an active");
 });
 app.get("/users", (req, res) => {
-  res.status(202).json({ success: "success", data: "users" });
+  res.status(202).json({ success: "success", data: users });
 });
-app.post("/users", (req, res) => {
+app.post("/user", (req, res) => {
   const { fname, lname, dob, school } = req.body;
   const user = { fname, lname, dob, school };
-  users.push(user);
 
-  const user = req.body;
   users.push(user);
-  res.status(201).json({ message: "User has been created ", data: "user" });
+  res.status(201).json({ message: "User has been created ", data: user });
 });
 
 app.listen(port, () => console.log(` server is up and running on ${port}`));
